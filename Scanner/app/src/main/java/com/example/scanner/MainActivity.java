@@ -9,14 +9,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.scanner.interfaces.OpenLibraryAPI;
+import com.example.scanner.models.OpenLibrary;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
+    String baseURLAPI = "http://openlibrary.org/search.json?q=";
     Button btnScan;
     EditText txtResultado;
+    EditText txtTitle;
     String isbn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 // si hemos leido correctamente le codigo de barras lo mostramos
                 Toast.makeText(this,result.getContents(), Toast.LENGTH_LONG).show();
                 isbn = result.getContents();
+                find(isbn);
             }
         }else {
             // si no hay resultado
@@ -78,5 +89,36 @@ public class MainActivity extends AppCompatActivity {
         integrator.setBarcodeImageEnabled(true);
         // para que se pueda iniciar el integrator. Ya hemos abierto el esaneo
         integrator.initiateScan();
+    }
+
+    private void find(String isbn){
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(baseURLAPI)
+                .addConverterFactory(GsonConverterFactory.create()).build();
+
+        OpenLibraryAPI openLibraryAPI = retrofit.create(OpenLibraryAPI.class);
+        Call<OpenLibrary> call = openLibraryAPI.find(isbn);
+        // hacemos la llamada de manera asincrona
+        call.enqueue(new Callback<OpenLibrary>() {
+            @Override
+            public void onResponse(Call<OpenLibrary> call, Response<OpenLibrary> response) {
+                // si hay respuesta por parte del servidor
+                try {
+                    //si el isbn es correcto
+                    if(response.isSuccessful()){
+                        OpenLibrary openLibrary = response.body();
+                        txtTitle.setText(openLibrary.docs.get(0).getTitle());
+                    }
+                }catch (Exception e){
+                    // si el isbn no es correcto
+                    Toast.makeText(MainActivity.this, "Error el isbn no se ha encontrado", Toast.LENGTH_LONG);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<OpenLibrary> call, Throwable t) {
+                // si hay un problema de conexion
+                Toast.makeText(MainActivity.this, "Error de conexion", Toast.LENGTH_LONG);
+            }
+        });
     }
 }

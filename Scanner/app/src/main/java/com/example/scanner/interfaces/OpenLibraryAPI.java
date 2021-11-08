@@ -1,11 +1,15 @@
 package com.example.scanner.interfaces;
 
-public class OpenLibraryAPI {
-    String api = "http://openlibrary.org/search.json?q=";
-    String isbn;
+import com.example.scanner.models.OpenLibrary;
 
-    public OpenLibraryAPI(){
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
-    }
+public interface OpenLibraryAPI {
+
+    @GET("{isbn}")
+    public Call<OpenLibrary> find(@Path("isbn") String isbn);
+
 
 }
