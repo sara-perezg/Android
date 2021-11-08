@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnScan;
     EditText txtResultado;
+    String isbn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         btnScan = findViewById(R.id.btnScan);
         txtResultado = findViewById(R.id.txtResultado);
 
-        btnScan.setOnClickListener(new View.OnClickListener() {
+        //cuando el usuario clicke el boton scan iniciamos nuestros integrator que leera el codigo
+       /* btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 IntentIntegrator integrator = new IntentIntegrator(MainActivity.this);
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 // para que se pueda iniciar el integrator. Ya hemos abierto el esaneo
                 integrator.initiateScan();
             }
-        });
+        });*/
     }
 
     protected  void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -53,12 +55,28 @@ public class MainActivity extends AppCompatActivity {
                 //si cancelamos el proceso
                 Toast.makeText(this,"Lectura cancelada", Toast.LENGTH_LONG).show();
             }else{
+                // si hemos leido correctamente le codigo de barras lo mostramos
                 Toast.makeText(this,result.getContents(), Toast.LENGTH_LONG).show();
-                txtResultado.setText(result.getContents());
+                isbn = result.getContents();
             }
-
         }else {
+            // si no hay resultado
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    public void launchIntegrator(View view){
+        IntentIntegrator integrator = new IntentIntegrator(MainActivity.this);
+        // ISBN codes are always coded on EAN_13 format
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.EAN_13);
+        integrator.setPrompt("Lector: OCP");
+        // id = 0 camara trasera
+        integrator.setCameraId(0);
+        // cuando lea el codigo suena beep
+        integrator.setBeepEnabled(true);
+        // para que salga el lector en la imagen de la camra
+        integrator.setBarcodeImageEnabled(true);
+        // para que se pueda iniciar el integrator. Ya hemos abierto el esaneo
+        integrator.initiateScan();
     }
 }
