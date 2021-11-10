@@ -4,12 +4,12 @@ import com.example.scanner.models.OpenLibrary;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface OpenLibraryAPI {
 
-    @GET("{isbn}")
-    public Call<OpenLibrary> find(@Path("isbn") String isbn);
+    @GET("search.json")
+    public Call<OpenLibrary> find(@Query("q") String isbn);
 
 
 }

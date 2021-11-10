@@ -23,11 +23,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    String baseURLAPI = "http://openlibrary.org/search.json?q=";
+    String baseURLAPI = "http://openlibrary.org/";
     Button btnScan;
     EditText txtResultado;
     EditText txtTitle;
     String isbn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnScan = findViewById(R.id.btnScan);
         txtResultado = findViewById(R.id.txtResultado);
+
 
         //cuando el usuario clicke el boton scan iniciamos nuestros integrator que leera el codigo
        /* btnScan.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 // si hemos leido correctamente le codigo de barras lo mostramos
                 Toast.makeText(this,result.getContents(), Toast.LENGTH_LONG).show();
                 isbn = result.getContents();
-                find(isbn);
+                txtResultado.setText(isbn);
             }
         }else {
             // si no hay resultado
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         integrator.initiateScan();
     }
 
-    private void find(String isbn){
+    public void find(String isbn){
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseURLAPI)
                 .addConverterFactory(GsonConverterFactory.create()).build();
 
@@ -106,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     //si el isbn es correcto
                     if(response.isSuccessful()){
                         OpenLibrary openLibrary = response.body();
+                        Toast.makeText(MainActivity.this, openLibrary.docs.get(0).getTitle(), Toast.LENGTH_LONG);
                         txtTitle.setText(openLibrary.docs.get(0).getTitle());
                     }
                 }catch (Exception e){
@@ -120,5 +123,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Error de conexion", Toast.LENGTH_LONG);
             }
         });
+    }
+
+    public void findTitle(View view){
+
+        Toast.makeText(MainActivity.this, "estas cliclando", Toast.LENGTH_LONG);
+        find(isbn);
     }
 }
