@@ -21,7 +21,7 @@
 
             <Button
                 android:id="@+id/bntClear"
-                style="@style/standardBTN"
+                style="@style/readStandardBTN"
                 android:layout_weight="1"
                 android:text="@string/clear"/>
 
