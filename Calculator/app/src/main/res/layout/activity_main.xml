@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/clear"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -35,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/parentheses"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -44,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/exponent"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -53,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/divide"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
         </TableRow>
 
@@ -67,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/seven"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -76,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/eight"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -85,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/nine"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -94,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/multiply"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
         </TableRow>
 
@@ -108,6 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/four"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -117,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/five"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -126,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/six"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -135,6 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/subtract"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
         </TableRow>
 
@@ -149,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/one"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -158,6 +171,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/two"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -167,6 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/three"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -176,6 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/add"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
         </TableRow>
@@ -191,6 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/plusMinus"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -200,6 +217,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/zero"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -209,6 +227,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/point"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
 
             <Button
@@ -218,6 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/equals"
+                android:layout_margin="5dp"
                 android:background="@drawable/circle"/>
         </TableRow>
     </TableLayout>
