@@ -15,10 +15,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         display = findViewById(R.id.input);
+        //escondemos el teclado
+        display.setShowSoftInputOnFocus(false);
+        //borramos el texto que esta por default cuadno el usaurio clicka en el disply
         display.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                if(getString(R.string.display).equals(display.getText().toString())){
+                    display.setText(" ");
+                }
             }
         });
     }
