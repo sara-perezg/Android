@@ -121,7 +121,7 @@
                 android:id="@+id/btnSubtract"
                 style="@style/standardBTN"
                 android:layout_weight="1"
-                android:onClick="minusBTN"
+                android:onClick="subtractBTN"
                 android:text="@string/subtract"
                 app:backgroundTint="@null" />
         </TableRow>
@@ -158,7 +158,7 @@
                 android:id="@+id/button16"
                 style="@style/standardBTN"
                 android:layout_weight="1"
-                android:onClick="plusBTN"
+                android:onClick="addBTN"
                 android:text="@string/add"
                 app:backgroundTint="@null" />
 
