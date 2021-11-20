@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/input"
         app:layout_constraintVertical_bias="0.95"
         tools:layout_editor_absoluteX="1dp">
 
@@ -23,29 +23,33 @@
                 style="@style/standardBTN"
                 android:layout_weight="1"
                 android:backgroundTint="@color/red"
+                android:onClick="clearBTN"
                 android:text="@string/clear"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnParentheses"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="parenthesesBTN"
                 android:text="@string/parentheses"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnExponent"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="exponentBTN"
                 android:text="@string/exponent"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnDivide"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="divideBTN"
                 android:text="@string/divide"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
         </TableRow>
 
         <TableRow
@@ -56,29 +60,33 @@
                 android:id="@+id/btnSeven"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="sevenBTN"
                 android:text="@string/seven"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnEight"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="eightBTN"
                 android:text="@string/eight"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnNine"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="nineBTN"
                 android:text="@string/nine"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnMultiply"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="multiplyBTN"
                 android:text="@string/multiply"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
         </TableRow>
 
         <TableRow
@@ -89,29 +97,33 @@
                 android:id="@+id/btnFour"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="fourBTN"
                 android:text="@string/four"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnFive"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="fiveBTN"
                 android:text="@string/five"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnSix"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="sixBTN"
                 android:text="@string/six"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnSubtract"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="minusBTN"
                 android:text="@string/subtract"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
         </TableRow>
 
         <TableRow
@@ -122,29 +134,33 @@
                 android:id="@+id/btnOne"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="oneBTN"
                 android:text="@string/one"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnTwo"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="twoBTN"
                 android:text="@string/two"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnThree"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="threeBTN"
                 android:text="@string/three"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/button16"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="plusBTN"
                 android:text="@string/add"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
         </TableRow>
 
@@ -156,35 +172,39 @@
                 android:id="@+id/btnPlusMinus"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="plusMinusBTN"
                 android:text="@string/plusMinus"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnZero"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="zeroBTN"
                 android:text="@string/zero"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnPoint"
                 style="@style/standardBTN"
                 android:layout_weight="1"
+                android:onClick="pointBTN"
                 android:text="@string/point"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnEquals"
                 style="@style/standardBTN"
                 android:layout_weight="1"
-                android:text="@string/equals"
                 android:backgroundTint="@color/green"
-                app:backgroundTint = "@null"/>
+                android:onClick="equalsBTN"
+                android:text="@string/equals"
+                app:backgroundTint="@null" />
         </TableRow>
     </TableLayout>
 
     <EditText
-        android:id="@+id/textView"
+        android:id="@+id/input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -206,6 +226,7 @@
         android:layout_margin="5dp"
         android:background="@drawable/circle"
         android:contentDescription="@string/backspace"
+        android:onClick="backspaceBTN"
         android:text="@string/backspace"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
