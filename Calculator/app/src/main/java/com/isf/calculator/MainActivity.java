@@ -3,8 +3,11 @@ package com.isf.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.EditText;
+
+import org.mariuszgromada.math.mxparser.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,8 +38,54 @@ public class MainActivity extends AppCompatActivity {
         int cursorPos = display.getSelectionStart();
         String leftString = oldStrng.substring(0,cursorPos);
         String rightString = oldStrng.substring(cursorPos);
-        display.setText(String.format("%s%s%s",leftString,strToAdd,rightString));
-//        display
+        // if the users enters a value from the firt time to clear the txtView
+        if (getString(R.string.display).equals(display.getText().toString())){
+            display.setText(strToAdd);
+        }
+        else{
+            // si el texto es distinto al inicial
+            // si el usuario añade dos ceros
+            if (getString(R.string.doubleZero).equals(strToAdd)){
+                // incrementamos la posicion del cursor en una posicion adicional
+                cursorPos++;
+            }
+            // in case the user moves the cursor we can keep the position
+            display.setText(String.format("%s%s%s",leftString,strToAdd,rightString));
+        }
+            //when tying setting the cursor one position forwards, this is to the right
+            display.setSelection(cursorPos + 1);
+    }
+
+    public void clearBTN(View view){
+        display.setText(getString(R.string.display));
+    }
+    public void equalsBTN(View view){
+        String userExp = display.getText().toString();
+        userExp = userExp.replaceAll(getResources().getString(R.string.divide), "/");
+        userExp = userExp.replaceAll(getResources().getString(R.string.multiply), "*");
+
+        Expression exp = new Expression(userExp);
+        String result = String.valueOf(exp.calculate());
+
+        display.setText(result);
+        display.setSelection(result.length());
+
+    }
+    public void backspaceBTN(View view){
+        //current cursor position
+        int cursorPos = display.getSelectionStart();
+        int txtLen = display.getText().length();
+
+        if (cursorPos != 0 && txtLen != 0){
+            SpannableStringBuilder selection = (SpannableStringBuilder) display.getText();
+            // where the uses sets the cursor we want to delet one position (cursorPos - 1)
+            // actually we are replacing it with nothing ""
+            selection.replace(cursorPos-1, cursorPos, "");
+            // we exchange the text of the display for the modified one
+            display.setText(selection);
+            // we need to set the cursor position to the one we stored minus one beacuse we deleted one
+            display.setSelection(cursorPos - 1);
+        }
     }
 
     public void zeroBTN(View view){
@@ -72,9 +121,6 @@ public class MainActivity extends AppCompatActivity {
     public void exponentBTN(View view){
         updateText(this.getResources().getString(R.string.exponent));
     }
-    public void parenthesesBTN(View view){
-        updateText(this.getResources().getString(R.string.parentheses));
-    }
     public void divideBTN(View view){
         updateText(this.getResources().getString(R.string.divide));
     }
@@ -87,17 +133,13 @@ public class MainActivity extends AppCompatActivity {
     public void subtractBTN(View view){
         updateText(this.getResources().getString(R.string.subtract));
     }
-    public void plusMinusBTN(View view){
-        updateText(this.getResources().getString(R.string.plusMinus));
+    public void doubleZeroBTN(View view){
+        updateText(this.getResources().getString(R.string.doubleZero));
     }
     public void pointBTN(View view){
         updateText(this.getResources().getString(R.string.point));
     }
-    public void clearBTN(View view){
-        display.setText("");
-    }
-    public void equalsBTN(View view){
-    }
-    public void backspaceBTN(View view){
+    public void parenthesesBTN(View view){
+        updateText(this.getResources().getString(R.string.parentheses));
     }
 }

@@ -169,11 +169,11 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btnPlusMinus"
+                android:id="@+id/btnDoubleZero"
                 style="@style/standardBTN"
                 android:layout_weight="1"
-                android:onClick="plusMinusBTN"
-                android:text="@string/plusMinus"
+                android:onClick="doubleZeroBTN"
+                android:text="@string/doubleZero"
                 app:backgroundTint="@null" />
 
             <Button
