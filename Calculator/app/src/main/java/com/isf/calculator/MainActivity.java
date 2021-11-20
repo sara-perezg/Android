@@ -57,17 +57,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clearBTN(View view){
+        // cuando borramos ponemos el texto de inicio
         display.setText(getString(R.string.display));
     }
     public void equalsBTN(View view){
+        // usamos expresiones para el paquete de mxparser
         String userExp = display.getText().toString();
+        //sustitumos los simbolos de dividir y multiplicar para que los detecte el metodo calculate
         userExp = userExp.replaceAll(getResources().getString(R.string.divide), "/");
         userExp = userExp.replaceAll(getResources().getString(R.string.multiply), "*");
 
+//        convertimos en expresion el string modificado
         Expression exp = new Expression(userExp);
+        // llamamos a metodo calculate para que parse la expresion y nos calcule el resultado
         String result = String.valueOf(exp.calculate());
 
+        // enseñamos el resultado por el txtvire
         display.setText(result);
+        //colocamos el cursor al final del texto
         display.setSelection(result.length());
 
     }
@@ -88,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // funciones onClick de los botones para añadir el texto al textView
     public void zeroBTN(View view){
         updateText(this.getResources().getString(R.string.zero));
     }
