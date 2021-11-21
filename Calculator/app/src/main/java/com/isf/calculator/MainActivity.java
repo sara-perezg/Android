@@ -1,5 +1,6 @@
 package com.isf.calculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -54,6 +55,20 @@ public class MainActivity extends AppCompatActivity {
         }
             //when tying setting the cursor one position forwards, this is to the right
             display.setSelection(cursorPos + 1);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+
+        bundle.getString("displayText",display.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        savedInstanceState.getString("displayText");
     }
 
     public void clearBTN(View view){

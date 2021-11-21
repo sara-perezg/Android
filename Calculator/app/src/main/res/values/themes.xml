@@ -23,9 +23,22 @@
         <item name="android:textSize">24sp</item>
     </style>
 
-    <!-- Clear calculator button-->
-
-    <style name="readStandardBTN" parent="standardBTN">
-        <item name ="android:backgroundTint">@color/red</item>
+    <!-- Landscape calculator button-->
+    <style name="lanStnBTN" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/circle</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">20sp</item>
     </style>
+
+    <!-- option calculator button-->
+    <style name="optionBTN" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/circle</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>
