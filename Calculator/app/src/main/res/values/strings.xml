@@ -28,9 +28,15 @@
     <string name="display">Enter in a value</string>
     <string name="empty"></string>
 
+
     <string name="divideSlash">/</string>
     <string name="multiplyAsterix">*</string>
 
     <string name="info">Informacion</string>
+    <string name="infoText">
+        Autora: Sara Perez Garcia\n
+        Curso: DAMV2\n
+        Instituto: IES Islas Filipinas\n
+    </string>
     <string name="exit">Salir</string>
 </resources>

@@ -246,9 +246,12 @@
 
     <Button
         android:id="@+id/btnExit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+        style="@style/optionBTN"
+        android:backgroundTint="@color/blue_light"
+        android:onClick="exit"
         android:text="@string/exit"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -256,9 +259,11 @@
 
     <Button
         android:id="@+id/btnInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/optionBTN"
+        android:backgroundTint="@color/blue_light"
+        android:onClick="infoActivity"
         android:text="@string/info"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/btnExit"
         app:layout_constraintEnd_toStartOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="parent"

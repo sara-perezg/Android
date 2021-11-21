@@ -1,8 +1,11 @@
 package com.isf.calculator;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
@@ -31,7 +34,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+//        Guardamos el texto del display
+        bundle.getString("displayText",display.getText().toString());
+    }
 
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+//        restauramos el texto del display
+        savedInstanceState.getString("displayText");
+    }
+
+    public void exit(View view){
+        finish();
+        System.exit(0);
+    }
     private void updateText(String strToAdd){
 
         String oldStrng = display.getText().toString();
@@ -57,19 +77,6 @@ public class MainActivity extends AppCompatActivity {
             display.setSelection(cursorPos + 1);
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-
-        bundle.getString("displayText",display.getText().toString());
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        savedInstanceState.getString("displayText");
-    }
 
     public void clearBTN(View view){
         // cuando borramos ponemos el texto de inicio
@@ -93,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         display.setSelection(result.length());
 
     }
+
     public void backspaceBTN(View view){
         //current cursor position
         int cursorPos = display.getSelectionStart();
@@ -108,6 +116,13 @@ public class MainActivity extends AppCompatActivity {
             // we need to set the cursor position to the one we stored minus one beacuse we deleted one
             display.setSelection(cursorPos - 1);
         }
+    }
+
+    public void infoActivity(View view){
+        // al pulsar en el boton de informacion queremos que se inicie la actividad de InfoActivity
+        // esta cargara el layout con la informacion de la aplicacion
+        Intent intent = new Intent(this, InfoActivity.class);
+        startActivity(intent);
     }
 
     // funciones onClick de los botones para añadir el texto al textView
