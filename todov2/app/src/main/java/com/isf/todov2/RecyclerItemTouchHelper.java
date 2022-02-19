@@ -1,6 +1,5 @@
 package com.isf.todov2;
 
-import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -18,7 +17,7 @@ import com.isf.todov2.Adapter.ToDoAdapter;
 
 public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
-    private ToDoAdapter adapter;
+    private final ToDoAdapter adapter;
 
     public RecyclerItemTouchHelper(ToDoAdapter adapter) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
@@ -39,18 +38,8 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             builder.setTitle("Delete Task");
             builder.setMessage("Are you sure you want to delete this Task?");
             builder.setPositiveButton("Confirm",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            adapter.deleteItem(position);
-                        }
-                    });
-            builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    adapter.notifyItemChanged(viewHolder.getAdapterPosition());
-                }
-            });
+                    (dialog, which) -> adapter.deleteItem(position));
+            builder.setNegativeButton(android.R.string.cancel, (dialog, which) -> adapter.notifyItemChanged(viewHolder.getAdapterPosition()));
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
