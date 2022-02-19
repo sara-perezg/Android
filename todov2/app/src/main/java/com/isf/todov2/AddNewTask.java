@@ -23,7 +23,7 @@ import com.isf.todov2.Utils.DatabaseHandler;
 
 import java.util.Objects;
 
-public class AddNewTask extends BottomSheetDialogFragment{
+public class AddNewTask extends BottomSheetDialogFragment {
 
     public static final String TAG = "ActionBottomDialog";
     private EditText newTaskText;
@@ -80,14 +80,11 @@ public class AddNewTask extends BottomSheetDialogFragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //if the string is empty
                 if(s.toString().equals("")){
-                    // we cannot create a new task and change the color of the button
                     newTaskSaveButton.setEnabled(false);
                     newTaskSaveButton.setTextColor(Color.GRAY);
                 }
                 else{
-                    //if there's text we enable the button and change its color
                     newTaskSaveButton.setEnabled(true);
                     newTaskSaveButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark));
                 }
