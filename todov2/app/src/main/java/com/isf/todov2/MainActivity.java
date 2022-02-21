@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         db = new DatabaseHandler(this);
         db.openDatabase();
@@ -64,5 +67,29 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         Collections.reverse(taskList);
         tasksAdapter.setTasks(taskList);
         tasksAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        getMenuInflater().inflate(R.menu.menu_activity, menu);
+        return true;
+    }
+
+    public void goToInfo(){
+         Intent i = new Intent(this, InfoClass.class);
+         startActivity(i);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem optionMenu) {
+
+        switch (optionMenu.getItemId()) {
+            case R.id.informacion:
+                goToInfo();
+                return true;
+            default:
+                return super.onOptionsItemSelected(optionMenu);
+        }
     }
 }

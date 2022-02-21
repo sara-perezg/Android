@@ -13,7 +13,7 @@ public class SplashActiviy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_activiy);
         getSupportActionBar().hide(); // hiding the activity
-
+//
         final Intent intent = new Intent(SplashActiviy.this, MainActivity.class); //launchin my main activity
         new Handler().postDelayed(new Runnable(){
             @Override
