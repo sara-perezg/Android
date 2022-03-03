@@ -93,6 +93,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         AddNewTask fragment = new AddNewTask();
         fragment.show(activity.getSupportFragmentManager(), AddNewTask.TAG);
     }
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
         CheckBox task;
 
